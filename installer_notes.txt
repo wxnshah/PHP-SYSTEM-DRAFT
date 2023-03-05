@@ -9,3 +9,6 @@ https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
 
 BOOTSTRAP ADMIN DASHBOARD TEMPLATES - START BOOTSTRAP
 https://startbootstrap.com/template/sb-admin
+
+INSTALLER TEMPLATES
+https://drive.google.com/file/d/1aHI4tH89MlBKZ9ucQYJ_2YhhXujpKGk4/view?usp=share_link
