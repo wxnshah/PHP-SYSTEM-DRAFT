@@ -1,4 +1,4 @@
-<?PHP 
+<?php
 # menyemak kewujudan data POST
 if (!empty($_POST))
 {
