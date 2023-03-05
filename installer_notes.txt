@@ -1,0 +1,11 @@
+HEIDISQL
+https://www.heidisql.com/installers/HeidiSQL_12.4.0.6659_Setup.exe
+
+XAMPP
+https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.33/xampp-windows-x64-7.4.33-0-VC15-installer.exe/download
+
+VISUAL STUDIO CODE (CODE EDITOR)
+https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
+
+BOOTSTRAP ADMIN DASHBOARD TEMPLATES - START BOOTSTRAP
+https://startbootstrap.com/template/sb-admin
