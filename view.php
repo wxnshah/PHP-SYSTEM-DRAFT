@@ -21,18 +21,6 @@ if(isset($_SESSION['userData']) != ""){
 		while ($rekod = mysqli_fetch_array($laksana_arahan_cari))
 		{
 			$i++;
-			# mengumpukan data yang diambil kepada tatasusunan
-			$data_get = array(
-				'id_homestay'=>$rekod['id_homestay'],
-				'hs_image'=>$rekod['hs_image'],
-				'hs_name'=>$rekod['hs_name'],
-				'hs_address'=>$rekod['hs_address'],
-				'hs_state'=>$rekod['hs_state'],
-				'hs_type'=>$rekod['hs_type'],
-				'hs_capacity'=>$rekod['hs_capacity'],
-				'hs_price'=>$rekod['hs_price']
-
-			);
 			echo "
 			<div class='col-lg-3 col-md-6 mb-4'>
 				<div class='card h-100'>
