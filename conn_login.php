@@ -8,8 +8,9 @@ include("connection.php");
 
 // Log In User
 if(isset($_POST['nokp']) && isset($_POST['katalaluanpelanggan']) && $_POST['nokp'] != "" && $_POST['katalaluanpelanggan'] != ""){
-	$nokp = $_POST['nokp'];
-	$katalaluan = $_POST['katalaluanpelanggan'];
+	$katalaluan = hash_hmac("sha512", $_POST['login_pass'], "politekniktuankusyedsirajuddin");
+	//$login_ic = filter_var($_POST['login_ic'], FILTER_SANITIZE_NUMBER_INT | FILTER_SANITIZE_MAGIC_QUOTES);
+	$nokp = filter_var(cleanurl($_POST['nokp']), FILTER_SANITIZE_NUMBER_INT);
 	
 	# arahan SQL untuk mencari data dari jadual penyewa
 	$arahan_sql_cari = "SELECT * FROM tb_login WHERE nokp = '".$nokp."' AND password = '".$katalaluan."'";
