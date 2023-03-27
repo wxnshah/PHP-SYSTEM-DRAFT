@@ -11,4 +11,4 @@ BOOTSTRAP ADMIN DASHBOARD TEMPLATES - START BOOTSTRAP
 https://startbootstrap.com/template/sb-admin
 
 INSTALLER TEMPLATES
-https://drive.google.com/file/d/1aHI4tH89MlBKZ9ucQYJ_2YhhXujpKGk4/view?usp=share_link
+https://drive.google.com/file/d/16JNIMgxUjVyu-uCOvfN7ISP7CLLTN0P-/view?usp=sharing
