@@ -1,4 +1,4 @@
-<?php 
+<?PHP 
 # menyemak kewujudan data POST
 if (!empty($_POST))
 {
@@ -6,17 +6,10 @@ if (!empty($_POST))
     include ("connection.php");
 
 # mengambil data POST
+    $nama = $_POST['nama'];
     $nokp = $_POST['nokp'];
-    $name = $_POST['name'];
-    $address = $_POST['address'];
-    $state = $_POST['state'];
-    $country = $_POST['country'];
-    $notel = $_POST['notel'];
-    $gender = $_POST['gender'];
-    $race = $_POST['race'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
-    $level = $_POST['level'];
+    $password = hash_hmac("sha512", $_POST['password'], "politekniktuankusyedsirajuddin");
     
 #pengesahan data
 	if (empty ($nokp) || empty ($name) || empty ($address) || empty ($state) || empty ($country) || empty($notel) || empty ($gender) || empty ($race) || empty($email) || empty($password) || empty($level)) {
