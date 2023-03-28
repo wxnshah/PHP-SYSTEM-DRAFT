@@ -9,6 +9,6 @@ if(isset($_POST['Submit'])) {
 	echo "<pre>";
 	print_r($_POST);
 	echo "</pre>";*/
-	include("assets/proses/proses_kemaskini.php");
+	include("assets/proses/proses_daftar.php");
 }
 ?>
