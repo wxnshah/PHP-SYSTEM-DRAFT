@@ -36,16 +36,24 @@ if(isset($_POST['nokp']) && isset($_POST['katalaluanpelanggan']) && $_POST['nokp
 		$id_log = $userData['id_login'];
 		$no_kp = $userData['nokp'];
 		$name = $userData['name'];
-		$us_address = $userData['address'];
-		$us_state = $userData['state'];
-		$us_country = $userData['country'];
-		$us_notel = $userData['notel'];
-		$us_gender = $userData['gender'];
-		$us_race = $userData['race'];
 		$us_email = $userData['email'];
 		$us_password = $userData['password'];
 		$level = $userData['level'];
 	}
+}
+
+// Get name/description from other ID 
+function getDataFromTable($column, $id, $column_id, $dbname) {
+	$res = "";
+	if($column!="" && $id!="" && $dbname!="" && $column_id!="") {
+		$arahan_sql_cari = "SELECT ".$column." FROM ".$dbname." WHERE ".$column_id."='".$id."'";
+		$laksana_arahan = mysqli_query($arahan_sql_cari);
+		$data=mysqli_fetch_array($laksana_arahan);
+		//$rs=dbquery($query);
+		//$data=dbarray($rs);
+		$res = $data[$column];
+	}
+	return $res;
 }
 
 // Redirect browser using header or script function
