@@ -1,8 +1,11 @@
-<select class="form-control" data-toggle="select2" name="user_dept" required autofocus>
+
+<select class="form-control select2" name="user_dept" required autofocus>
 	<option value="">Pilih Jabatan</option>
 	<?php
-		$rs = dbquery("SELECT * FROM ".$table_name);
-		while($data=dbarray($rs)){
+		$arahan_sql_cari = "SELECT nokp FROM tb_users";
+	 	# melaksanakan proses carian 
+	 	$laksana_arahan = mysqli_query($condb,$arahan_sql_cari);
+		while($data=dbarray($laksana_arahan)){
 		$id_jabatan = $data['id_jabatan'];
 		$nama_jabatan = $data['nama_jabatan'];
 
