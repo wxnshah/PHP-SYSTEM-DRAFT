@@ -43,7 +43,7 @@ if(isset($_GET['success']) && $_GET['success']=="3") {
 
 	# melaksanakan arahan memilih
 	$laksana_arahan_cari = mysqli_query($condb,$arahan_SQL_cari);
-	if(mysqli_rows($laksana_arahan_cari)) {
+	if(mysqli_num_rows($laksana_arahan_cari)) {
 		# pembolehubah rekod mengambil data yang di pilih baris demi baris
 		$i = 0;
 		while ($rekod = mysqli_fetch_array($laksana_arahan_cari))
