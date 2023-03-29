@@ -11,20 +11,10 @@ BOOTSTRAP ADMIN DASHBOARD TEMPLATES - START BOOTSTRAP
 https://startbootstrap.com/template/sb-admin
 
 BOOTSTRAP TEMPLATES
-https://drive.google.com/file/d/1plaimTnsvp87DU4ISuadkFLLzgMw6Y6E/view?usp=sharing
+https://drive.google.com/drive/folders/1z2cVq_GgKTlMrRAx6u5BguHKyQsvF3k0?usp=sharing
 
-INSTALLER COMPLETE
-https://drive.google.com/file/d/1jRP2WtyMXLRV2JiEPA7h20EbQOmosT3N/view?usp=sharing
+INSTALLER COMPLETE (FOLDER)
+https://drive.google.com/drive/folders/1FMSmnS6UMj1q6NPmbYu-lDsIrsSyby2U?usp=sharing
 
-
-https://drive.google.com/drive/folders/1F62IoHi3ZIL7nFL5xF0werbCO1vHsX-S?usp=sharing
-
-
-<!-- Sweet Alert-->
-<link href="assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
-<!-- Sweet Alert ends-->
-
-<!-- Sweet Alerts js -->
-        <script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
-<!-- Sweet Alerts js ends -->
-        
+INSTALLER COMPLETE (ZIP)
+https://drive.google.com/file/d/1olp_oM6eiCNPZOD7UAx6Hf09OFgfE2_a/view?usp=sharing
