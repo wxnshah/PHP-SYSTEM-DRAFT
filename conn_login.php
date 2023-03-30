@@ -42,20 +42,6 @@ if(isset($_POST['nokp']) && isset($_POST['katalaluanpelanggan']) && $_POST['nokp
 	}
 }
 
-// Get name/description from other ID 
-function getDataFromTable($column, $id, $column_id, $dbname) {
-	$res = "";
-	if($column!="" && $id!="" && $dbname!="" && $column_id!="") {
-		$arahan_sql_cari = "SELECT ".$column." FROM ".$dbname." WHERE ".$column_id."='".$id."'";
-		$laksana_arahan = mysqli_query($arahan_sql_cari);
-		$data=mysqli_fetch_array($laksana_arahan);
-		//$rs=dbquery($query);
-		//$data=dbarray($rs);
-		$res = $data[$column];
-	}
-	return $res;
-}
-
 // Redirect browser using header or script function
 function redirect($location, $script = false) {
 	if (!$script) {
