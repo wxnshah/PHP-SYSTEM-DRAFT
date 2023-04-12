@@ -97,6 +97,11 @@ function dbcount($field, $table, $conditions = "") {
 	}
 }
 
+function dbrows($query) {
+	$result = @mysqli_num_rows($query);
+	return $result;
+}
+
 function dbarray($query) {	
 	$result = @mysqli_fetch_assoc($query);
 	if (!$result) {
