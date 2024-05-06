@@ -2,36 +2,46 @@
 # menyemak kewujudan data POST
 if (!empty($_POST))
 {
-# memanggil fail connection
-    include ("connection.php");
 
-# mengambil data POST
-    $nama = $_POST['nama'];
-    $nokp = $_POST['nokp'];
-    $email = $_POST['email'];
-    $password = hash_hmac("sha512", $_POST['password'], "politekniktuankusyedsirajuddin");
+	# mengambil data POST
+	$user_name = $_POST['user_name'];
+	$user_ic = $_POST['user_ic'];
+	$user_email = $_POST['user_email'];
+    $password = hash_hmac("sha512", $_POST['password'], "majlisperbandaransungaipetani");
     
-#pengesahan data
-	if (empty ($nokp) || empty ($name) || empty ($address) || empty ($state) || empty ($country) || empty($notel) || empty ($gender) || empty ($race) || empty($email) || empty($password) || empty($level)) {
+	#pengesahan data
+	if (empty ($user_name) || empty ($user_ic) || empty ($user_email) || empty ($password)) {
 		die("<script>alert('Data tidak lengkap.');
 		window.history.back();</script>");
 	}
+
+	#check data if exists
+	$result = dbquery("SELECT user_ic FROM tb_users WHERE user_ic = '".$user_ic."'");
+	// echo "SELECT user_ic FROM tb_users WHERE user_ic = '".$user_ic."'";
 	
-#arahan SQL untuk menyimpan data	
-$arahan_sql_simpan = "INSERT INTO tb_login(nokp,name,address,state,country,notel,gender,race,email,password,level)VALUES('$nokp','$name','$address','$state','$country','$notel','$gender','$race','$email','$password','$level')";
-//echo "INSERT INTO tb_login(nokp,name,address,state,country,notel,gender,race,email,password,level)VALUES('$nokp','$name','$address','$state','$country','$notel','$gender','$race','$email','$password','$level')";
-	
-#melaksanakan proses menyimpan data dalam syarat if
-	if(mysqli_query($condb,$arahan_sql_simpan)) {
-		#jika proses menyimpan berjaya,papar info dan buka laman add.php
-		//echo "<script>alert('Kemasukan Data Berjaya')</script>";
-		redirect("pelanggan_login.php?success=1");
+	if (!$result || dbrows($result) != 0){
+		// Rows exist
+		echo "<script>alert('Data Telah Didaftarkan !')</script>";
+		// redirect("register.php");
+	} else {
+		#arahan SQL untuk menyimpan data	
+		$arahan_sql_simpan = "INSERT INTO tb_users(user_name,user_ic,user_email,password)VALUES('$user_name','$user_ic','$user_email','$password')";
+		// echo "INSERT INTO tb_users(user_name,user_ic,user_email,password)VALUES('$user_name','$user_ic','$user_email','$password')";
+		
+		#melaksanakan proses menyimpan data dalam syarat if
+		if(mysqli_query($conn,$arahan_sql_simpan)) {
+			#jika proses menyimpan berjaya,papar info dan buka laman login.php
+			//echo "<script>alert('Kemasukan Data Berjaya')</script>";
+			// redirect("login.php?success=1");
+		}
+		else
+		{	
+			#jika proses menyimpan gagal,papar laman sebelumnya
+			echo"<script>alert('Gagal');";
+			// window.history.back();</script>";
+		}
+
 	}
-	else
-	{	
-		#jika proses menyimpan gagal,papar laman sebelumnya
-		echo"<script>alert('Gagal');
-		window.history.back();</script>";
-	}
+
 }
 ?>
