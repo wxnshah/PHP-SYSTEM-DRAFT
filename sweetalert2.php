@@ -3,7 +3,7 @@ if(isset($_GET['success']) && $_GET['success']=="1") {
 	echo "<script>
 			setTimeout(function() {
                 Swal.fire({
-                    position: '', showConfirmButton: false, titleText: 'Simpanan Berjaya !', text: 'Permohonan anda telah berjaya dihantar !', icon: 'success', timerProgressBar: true, timer: 3000
+                    position: 'top-end', showConfirmButton: false, titleText: 'Simpanan Berjaya !', text: 'Permohonan anda telah berjaya dihantar !', icon: 'success', timerProgressBar: true, timer: 3000
                 })
 			}, 600);
 		</script>";
