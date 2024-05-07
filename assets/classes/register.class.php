@@ -17,8 +17,8 @@ if (!empty($_POST))
 
 	#check data if exists
 	$result = $conn->prepare("SELECT user_ic FROM tb_users WHERE user_ic = '".$user_ic."'");
-	$stmt->execute();
-	$exists = (bool) $stmt->get_result()->fetch_row();
+	$result->execute();
+	$exists = (bool) $result->get_result()->fetch_row();
 
 	if ($exists) {
 		redirect("register.php?error=1");
