@@ -2,7 +2,7 @@
 /*-------------------------------------------------------+
 | dksyn_
 +--------------------------------------------------------+
-| Author: Eline
+| Author: dksyn_
 +--------------------------------------------------------*/
 // Calculate script start/end time
 function get_microtime() {
@@ -72,22 +72,22 @@ if(isset($_POST['idpengguna_login']) && isset($_POST['kata_login']) && $_POST['i
 }
 
 // MySQL database functions
-// function dbquery($query) {
-// 	global $db_connect, $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
+function dbquery($query) {
+	global $db_connect, $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
 
-// 	$query_time = get_microtime();
-// 	$result = @mysqli_query($db_connect, $query);
-// 	$query_time = substr((get_microtime() - $query_time),0,7);
+	$query_time = get_microtime();
+	$result = @mysqli_query($db_connect, $query);
+	$query_time = substr((get_microtime() - $query_time),0,7);
 
-// 	$mysql_queries_time[$mysql_queries_count] = array($query_time, $query);
+	$mysql_queries_time[$mysql_queries_count] = array($query_time, $query);
 
-// 	if (!$result) {
-// 		echo mysqli_connect_error();
-// 		return false;
-// 	} else {
-// 		return $result;
-// 	}
-// }
+	if (!$result) {
+		echo mysqli_connect_error();
+		return false;
+	} else {
+		return $result;
+	}
+}
 
 // function dbcount($field, $table, $conditions = "") {
 // 	global $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
@@ -108,20 +108,20 @@ if(isset($_POST['idpengguna_login']) && isset($_POST['kata_login']) && $_POST['i
 // 	}
 // }
 
-// function dbrows($query) {
-// 	$result = @mysqli_num_rows($query);
-// 	return $result;
-// }
+function dbrows($query) {
+	$result = @mysqli_num_rows($query);
+	return $result;
+}
 
-// function dbarray($query) {	
-// 	$result = @mysqli_fetch_assoc($query);
-// 	if (!$result) {
-// 		echo mysqli_connect_error();
-// 		return false;
-// 	} else {
-// 		return $result;
-// 	}
-// }
+function dbarray($query) {	
+	$result = @mysqli_fetch_assoc($query);
+	if (!$result) {
+		echo mysqli_connect_error();
+		return false;
+	} else {
+		return $result;
+	}
+}
 
 // function dbconnect($nama_host, $username_SQL , $password_SQL , $nama_DB) {
 // 	global $db_connect;
@@ -132,17 +132,17 @@ if(isset($_POST['idpengguna_login']) && isset($_POST['kata_login']) && $_POST['i
 // 	}
 // }
 
-// // Get Data (ID To Name) From Other Table
-// function getDataFromTable($column, $id, $column_id, $dbname) {
-// 	$res = "";
-// 	if($column!="" && $id!="" && $dbname!="" && $column_id!="") {
-// 		$query = "SELECT ".$column." FROM ".$dbname." WHERE ".$column_id."='".$id."'";
-// 		$rs=dbquery($query);
-// 		$data=dbarray($rs);
-// 		$res = $data[$column];
-// 	}
-// 	return $res;
-// }
+// Get Data (ID To Name) From Other Table
+function getDataFromTable($column, $id, $column_id, $dbname) {
+	$res = "";
+	if($column!="" && $id!="" && $dbname!="" && $column_id!="") {
+		$query = "SELECT ".$column." FROM ".$dbname." WHERE ".$column_id."='".$id."'";
+		$rs=dbquery($query);
+		$data=dbarray($rs);
+		$res = $data[$column];
+	}
+	return $res;
+}
 
 // Redirect browser using header or script function
 function redirect($location, $script = false) {
