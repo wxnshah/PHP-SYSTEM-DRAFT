@@ -28,47 +28,46 @@ ob_start();
 date_default_timezone_set("Asia/Kuala_Lumpur");
 
 // Log In User
-if(isset($_POST['idpengguna_login']) && isset($_POST['kata_login']) && $_POST['idpengguna_login'] != "" && $_POST['kata_login'] != ""){
-	$idpengguna = $_POST['idpengguna_login'];
-	$kataEncript = $_POST['kata_login'];
-    $kata = hash_hmac("sha512", $kataEncript, "elinenantiletakhashdekatsini");
-	// $kata = password_hash($kataEncript,PASSWORD_BCRYPT);
-	
-	# arahan SQL untuk mencari data dari tb_users
-	$sql = $conn->query("SELECT * FROM tb_users WHERE id_pengguna = '".$idpengguna."' AND kata = '".$kata."'");
+if(isset($_POST['user_ic']) && isset($_POST['password']) && $_POST['user_ic'] != "" && $_POST['password'] != ""){
+    $user_ic = $_POST['user_ic'];
+    $password = hash_hmac("sha512", $_POST['password'], "majlisperbandaransungaipetani");
 
-	// $arahan_sql_cari = "SELECT * FROM tb_users WHERE email = '".$email."' AND password = '".$katalaluan."'";
-	//echo "SELECT * FROM tb_users WHERE id_pengguna = '".$idpengguna."' AND kata = '".$kata."'";
-		
-	# jika terdapat 1 baris rekod di temui
-		if($sql) {
-			$rekod = $sql->fetch_object();
-			// echo "<pre>";
-            // print_r($rekod);
-            // echo "</pre>";
-			$_SESSION['userData'] = $rekod;
-			redirect("index.php");
-		} else {
-            // echo "<pre>";
-            // print_r($_POST);
-            // echo "</pre>";
-			redirect("login.php?success=0");
-		} 
-} elseif (isset($_GET['logout']) && $_GET['logout'] == "yes") {
-	session_destroy();
-	$_SESSION = array();
+    // Prepare and execute a parameterized query
+    $stmt = $conn->prepare("SELECT * FROM tb_users WHERE user_ic = ? AND password = ?");
+    $stmt->bind_param("ss", $user_ic, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if($result->num_rows > 0){
+        $userData = $result->fetch_assoc();
+
+        // Set session data
+        $_SESSION['userData'] = $userData;
+
+        // Assigning id_users to a variable
+        $id_users = $_SESSION['userData']['id_users'];
+        $user_name = $_SESSION['userData']['user_name'];
+        $user_email = $_SESSION['userData']['user_email'];
+        $user_ic = $_SESSION['userData']['user_ic'];
+
+        // Redirect to index.php after setting session data
+        redirect("index.php");
+    } else {
+        redirect("login.php?success=0");
+    }
+} elseif(isset($_GET['logout']) && $_GET['logout'] == "yes"){
+    session_unset();
+    session_destroy();
+    redirect("login.php");
 } else {
-	#mengumpukkan kepada pembolehubah session
-	if (isset($_SESSION['userData']) != "") {
-		$userData = $_SESSION['userData'];
-
-		$id_users = $userData->id_users;
-		$id_pengguna_users = $userData->id_pengguna;
-		$name_users = $userData->name_users;
-		$nickname_users = $userData->nickname;
-		$phonenum_users = $userData->phonenum;
-		$level_users = $userData->level;
-	}
+    // Check if user is already logged in
+    if(isset($_SESSION['userData'])){
+        // Assigning id_users to a variable
+        $id_users = $_SESSION['userData']['id_users'];
+        $user_name = $_SESSION['userData']['user_name'];
+        $user_email = $_SESSION['userData']['user_email'];
+        $user_ic = $_SESSION['userData']['user_ic'];
+    }
 }
 
 // MySQL database functions
