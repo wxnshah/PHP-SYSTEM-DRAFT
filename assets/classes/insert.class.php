@@ -4,29 +4,25 @@ if (!empty($_POST))
 {
 	
 # mengambil data POST
-    $hs_name = $_POST['hs_name'];
-    $hs_address = $_POST['hs_address'];
-    $hs_state = $_POST['hs_state'];
-    $hs_type = $_POST['hs_type'];
-    $hs_room = $_POST['hs_room'];
-    $hs_toilet = $_POST['hs_toilet'];
-    $hs_aircond = $_POST['hs_aircond'];
-    $hs_capacity = $_POST['hs_capacity'];
-    $hs_price = $_POST['hs_price'];
+    $name_students = $_POST['name_students'];
+    $id_gender = $_POST['id_gender'];
+    $id_department = $_POST['id_department'];
+    $id_university = $_POST['id_university'];
+    $start_date = $_POST['start_date'];
+    $end_date = $_POST['end_date'];
     
 #pengesahan data
-	if (empty ($hs_name) || empty ($hs_address) || empty ($hs_state) || empty ($hs_type) || empty ($hs_room) || empty($hs_toilet) || empty ($hs_aircond) ||
-	empty ($hs_capacity) || empty($hs_price))
+	if (empty ($name_students) || empty ($id_gender) || empty ($id_department) || empty ($id_university) || empty ($start_date) || empty($end_date))
 	{
 		die("<script>alert('Data tidak lengkap.');
 		window.history.back();</script>");
 	}
 	
 #arahan SQL untuk menyimpan data	
-$arahan_sql_simpan = "INSERT INTO tb_homestay(hs_name,hs_address,hs_state,hs_type,hs_room,hs_toilet,hs_aircond,hs_capacity,hs_price)VALUES('$hs_name','$hs_address','$hs_state','$hs_type','$hs_room','$hs_toilet','$hs_aircond','$hs_capacity','$hs_price')";
+$arahan_sql_simpan = "INSERT INTO tb_students(name_students,id_gender,id_department,id_university,start_date,end_date)VALUES('$name_students','$id_gender','$id_department','$id_university','$start_date','$end_date')";
 	
 #melaksanakan proses menyimpan data dalam syarat if
-	if(mysqli_query($condb,$arahan_sql_simpan))
+	if(mysqli_query($conn,$arahan_sql_simpan))
 	{
 		#jika proses menyimpan berjaya,papar info dan buka laman add.php
 		//echo "<script>alert('Kemasukan Data Berjaya')</script>";
