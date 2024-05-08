@@ -6,7 +6,8 @@
 		$id_department = $data['id_department'];
 		$name_department = $data['name_department'];
 	
-		echo "<option value='".$id_department."' ".($id_department==$data_dept?"selected='selected'" :"").">".$name_department."</option>";
+		echo "<option value='".$id_department."'>".$name_department."</option>";
+		// echo "<option value='".$id_department."' ".($id_department==$data_dept?"selected='selected'" :"").">".$name_department."</option>";
 	    }
 	?>
 </select>
