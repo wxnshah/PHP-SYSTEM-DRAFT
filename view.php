@@ -15,16 +15,16 @@ if(isset($_GET['success']) && $_GET['success']=="1") {
                 <main>  
                     <div class="container-fluid px-4">
 
-                    <h1 class="mt-4">Permohonan Baru</h1>
+                    <h1 class="mt-4">Senarai Permohonan</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Permohonan Baru</li>
+                        <li class="breadcrumb-item active">Senarai Permohonan</li>
                     </ol>
                     
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fa-solid fa-plus"></i>
-                            Tambah Permohonan Baru
+                            Senarai Permohonan
                         </div>
                         <div class="card-body">
                             <table id="example" class="table dt-responsive w-100">
