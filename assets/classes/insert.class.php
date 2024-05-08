@@ -2,9 +2,7 @@
 # menyemak kewujudan data POST
 if (!empty($_POST))
 {
-# memanggil fail connection
-    include ("connection.php");
-
+	
 # mengambil data POST
     $hs_name = $_POST['hs_name'];
     $hs_address = $_POST['hs_address'];
