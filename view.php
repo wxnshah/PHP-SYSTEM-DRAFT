@@ -1,52 +1,71 @@
 <?php
-require_once("conn_login.php");
-include("header.php");
+require_once('conn.php');
+include('headeruser.php');
 
-/*echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";*/
-
-if(isset($_SESSION['userData']) != ""){
-?>
-
-	<?php
-	# arahan sql untuk memilih data berkaitan
-	$arahan_SQL_cari = "SELECT * FROM tb_homestay";
-
-	# melaksanakan arahan memilih
-	$laksana_arahan_cari = mysqli_query($condb,$arahan_SQL_cari);
-	if(mysqli_num_rows($laksana_arahan_cari)) {
-		# pembolehubah rekod mengambil data yang di pilih baris demi baris
-		$i = 0;
-		while ($rekod = mysqli_fetch_array($laksana_arahan_cari))
-		{
-			$i++;
-			echo "
-			<div class='col-lg-3 col-md-6 mb-4'>
-				<div class='card h-100'>
-				<img class='card-img-top' style='max-height:230px;' src='".$rekod['hs_image']."' alt=''>
-					<div class='card-body'>
-						<h4 class='card-title'>".$rekod['hs_name']."</h4>
-						<p class='card-text'>".$rekod['hs_address']."</p>
-						<p class='card-text'>RM ".$rekod['hs_price']."</p>
-					</div>
-					<div class='card-footer'>
-						<a href='tempahan.php?id=".$rekod['id_homestay']."' class='btn btn-primary'>Tempah Sekarang !</a>
-					</div>
-				</div>
-			</div>
-			";
-		}
-	} else {
-		echo "Tiada Data Ditemukan";
-	}
-	?>
-
-<?php
-} else {
-	header("Location: pelanggan_login.php");
-	exit(); // Quit the script.
-	include("footer.php");
+if(isset($_GET['success']) && $_GET['success']=="1") {
+	echo "<script>
+			setTimeout(function() {
+                Swal.fire({
+                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Ditambah !', icon: 'success', timerProgressBar: true, timer: 3000
+                })
+			}, 600);
+		</script>";
 }
-include ("footer.php");
+?>
+                <main>  
+                    <div class="container-fluid px-4">
+
+                    <h1 class="mt-4">Permohonan Baru</h1>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Permohonan Baru</li>
+                    </ol>
+                    
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fa-solid fa-plus"></i>
+                            Tambah Permohonan Baru
+                        </div>
+                        <div class="card-body">
+                            <table id="example" class="table dt-responsive w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Bil</th>
+                                        <th>Nama</th>
+                                        <th>No Kad Pengenalan</th>
+                                        <th>Kemaskini</th>
+                                    </tr>
+                                </thead>
+                            
+                                <tbody>
+                                    <?php
+                                    // $result = dbquery("SELECT * FROM tb_students");
+                                    // if(dbrows($result)) {
+                                    //     $i=0;
+                                    //     while($data=dbarray($result)) {
+                                    //     $i++;	
+                                    //     echo "
+                                    //     <tr>
+                                    //         <td align='center'>
+                                    //             ".$i."
+                                    //         </td>
+                                    //         <td>
+                                    //             <p>".$data['user_ic']."</p>
+                                    //         </td>
+                                    //         <td align='center' width='1%'>
+                                    //             <a href='#'><i class='fas fa-edit fa-2x'></i></a>&nbsp;&nbsp;
+                                    //             <a href='senarai_pengguna.php?delete_id=".$datax['user_id']."' onclick=\"return deletebuttonask()\"><i class='fas fa-trash fa-2x'></i></a>
+                                    //         </td>
+                                    //     </tr>";
+                                    //     }   
+                                    // }
+                                    ?>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                    </div>
+                </main>
+<?php
+include('footer.php');
 ?>
