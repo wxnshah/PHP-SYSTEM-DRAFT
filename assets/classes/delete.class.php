@@ -1,12 +1,11 @@
 <?php
-# memanggil fail connection
-    include ('connection.php');
-	
-#arahan SQL untuk menyimpan data	
+$id_students = isset($_GET['id_students']) && $_GET['id_students']!="" ? $_GET['id_students'] : "";
+
+#arahan SQL untuk padam data	
 $arahan_sql_kemaskini = "DELETE FROM tb_homestay WHERE id_homestay = '".$_GET['delete_id']."'";
 	
 #melaksanakan proses menyimpan data dalam syarat if
-	if(mysqli_query($condb,$arahan_sql_kemaskini))
+	if(mysqli_query($conn, $arahan_sql_kemaskini))
 	{
 		#jika proses menyimpan berjaya,papar info dan buka laman add.php
 		//echo "<script>alert('Data Berjaya Dipadam')</script>";
