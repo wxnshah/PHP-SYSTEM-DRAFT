@@ -72,10 +72,10 @@ if(isset($_POST['user_ic']) && isset($_POST['password']) && $_POST['user_ic'] !=
 
 // MySQL database functions
 function dbquery($query) {
-	global $db_connect, $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
+	global $conn, $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
 
 	$query_time = get_microtime();
-	$result = @mysqli_query($db_connect, $query);
+	$result = @mysqli_query($conn, $query);
 	$query_time = substr((get_microtime() - $query_time),0,7);
 
 	$mysql_queries_time[$mysql_queries_count] = array($query_time, $query);
