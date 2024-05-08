@@ -38,28 +38,28 @@ if(isset($_GET['success']) && $_GET['success']=="1") {
                                 </thead>
                             
                                 <tbody>
-                                    <?php
-                                    // $result = dbquery("SELECT * FROM tb_students");
-                                    // if(dbrows($result)) {
-                                    //     $i=0;
-                                    //     while($data=dbarray($result)) {
-                                    //     $i++;	
-                                    //     echo "
-                                    //     <tr>
-                                    //         <td align='center'>
-                                    //             ".$i."
-                                    //         </td>
-                                    //         <td>
-                                    //             <p>".$data['user_ic']."</p>
-                                    //         </td>
-                                    //         <td align='center' width='1%'>
-                                    //             <a href='#'><i class='fas fa-edit fa-2x'></i></a>&nbsp;&nbsp;
-                                    //             <a href='senarai_pengguna.php?delete_id=".$datax['user_id']."' onclick=\"return deletebuttonask()\"><i class='fas fa-trash fa-2x'></i></a>
-                                    //         </td>
-                                    //     </tr>";
-                                    //     }   
-                                    // }
-                                    ?>
+                                <?php
+                                // $result = dbquery("SELECT * FROM tb_students");
+                                // if(dbrows($result)) {
+                                //     $i=0;
+                                //     while($data=dbarray($result)) {
+                                //     $i++;	
+                                //     echo "
+                                //     <tr>
+                                //         <td align='center'>
+                                //             ".$i."
+                                //         </td>
+                                //         <td>
+                                //             <p>".$data['user_ic']."</p>
+                                //         </td>
+                                //         <td align='center' width='1%'>
+                                //             <a href='#'><i class='fas fa-edit fa-2x'></i></a>&nbsp;&nbsp;
+                                //             <a href='senarai_pengguna.php?delete_id=".$datax['user_id']."' onclick=\"return deletebuttonask()\"><i class='fas fa-trash fa-2x'></i></a>
+                                //         </td>
+                                //     </tr>";
+                                //     }   
+                                // }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
