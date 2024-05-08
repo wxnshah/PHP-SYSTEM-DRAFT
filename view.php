@@ -11,6 +11,24 @@ if(isset($_GET['success']) && $_GET['success']=="1") {
 			}, 600);
 		</script>";
 }
+if(isset($_GET['success']) && $_GET['success']=="2") {
+	echo "<script>
+			setTimeout(function() {
+                Swal.fire({
+                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Dikemaskini !', icon: 'success', timerProgressBar: true, timer: 3000
+                })
+			}, 600);
+		</script>";
+}
+if(isset($_GET['success']) && $_GET['success']=="3") {
+	echo "<script>
+			setTimeout(function() {
+                Swal.fire({
+                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Dipadam !', icon: 'success', timerProgressBar: true, timer: 3000
+                })
+			}, 600);
+		</script>";
+}
 ?>
                 <main>  
                     <div class="container-fluid px-4">
