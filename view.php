@@ -45,7 +45,7 @@ if(isset($_GET['success']) && $_GET['success']=="3") {
                             Senarai Permohonan
                         </div>
                         <div class="card-body">
-                            <table id="example" class="table dt-responsive w-100">
+                            <table id="example" class="table table-bordered">
                                 <thead>
                                     <tr>
                                         <th>Bil</th>
