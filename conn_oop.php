@@ -132,13 +132,13 @@ function dbarray($query) {
 // }
 
 // Get Data (ID To Name) From Other Table
-function getDataFromTable($column, $id, $column_id, $dbname) {
+function getDataFromTable($column_name, $data_id, $column_id, $lt_name) {
 	$res = "";
-	if($column!="" && $id!="" && $dbname!="" && $column_id!="") {
-		$query = "SELECT ".$column." FROM ".$dbname." WHERE ".$column_id."='".$id."'";
+	if($column_name!="" && $data_id!="" && $lt_name!="" && $column_id!="") {
+		$query = "SELECT ".$column_name." FROM ".$lt_name." WHERE ".$column_id."='".$data_id."'";
 		$rs=dbquery($query);
 		$data=dbarray($rs);
-		$res = $data[$column];
+		$res = $data[$column_name];
 	}
 	return $res;
 }
