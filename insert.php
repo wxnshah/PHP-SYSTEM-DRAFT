@@ -20,9 +20,7 @@ include('sweetalert2.php');
 
 <?php
 // } else {
-// 	header("Location: index.php");
-// 	exit(); // Quit the script.
-// 	include("footer.php");
+//     redirect('login.php');
 // }
 include ("footer.php");
 ?>
