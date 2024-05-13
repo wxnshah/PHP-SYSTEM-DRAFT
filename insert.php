@@ -1,6 +1,6 @@
 <?php
-require_once("conn_login.php");
-include("header.php");
+require_once("conn.php");
+include("headeruser.php");
 
 if(isset($_POST['Submit'])) {
 	/*echo "<br>";
