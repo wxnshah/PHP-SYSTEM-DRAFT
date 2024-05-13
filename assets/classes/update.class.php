@@ -13,6 +13,13 @@ if (!empty($_POST))
 	$data_start_date = $_POST['start_date'];
 	$data_end_date = $_POST['end_date'];
 
+	$result = dbquery("SELECT * FROM tb_students WHERE id_students = '".$id_students ."' ");
+	if(dbrows($result)) {
+		while($data = dbarray($result)) {
+			unlink($data['image_student']);
+		}
+	}
+
 	$target_dir = "assets/uploads/";
 	$name = $_FILES['image_student']['name'];
 	$new_name = $target_dir.time()."-".rand(1000, 9999)."-".$name;
