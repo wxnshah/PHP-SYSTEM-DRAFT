@@ -12,17 +12,17 @@ if(isset($_POST['Submit'])) {
 	echo "</pre>";*/
 	include("assets/proses/proses_tambah.php");
 }
-
-if (isset($_SESSION['userData']) != "" && $level == 1){
+include('sweetalert2.php');
+// if (isset($_SESSION['userData']) != "" && $level == 1){
 ?>
 
 
 
 <?php
-} else {
-	header("Location: index.php");
-	exit(); // Quit the script.
-	include("footer.php");
-}
+// } else {
+// 	header("Location: index.php");
+// 	exit(); // Quit the script.
+// 	include("footer.php");
+// }
 include ("footer.php");
 ?>
