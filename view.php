@@ -30,7 +30,7 @@ include('sweetalert2.php');
                             Senarai Permohonan
                         </div>
                         <div class="card-body table-responsive">
-                            <table id="example" class="table table-bordered" width="100%">
+                            <table id="example" class="table table-bordered table-responsive" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Bil</th>
