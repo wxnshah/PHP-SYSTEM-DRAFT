@@ -2,6 +2,17 @@
 require_once('conn.php');
 include('headeruser.php');
 
+if(isset($_GET['delete_id'])) {
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<pre>";
+	// print_r($_GET);
+	// echo "</pre>";
+	include('assets/classes/padam_permohonan.class.php');
+}
+
 include('sweetalert2.php');
 ?>
                 <main>  
@@ -18,19 +29,23 @@ include('sweetalert2.php');
                             <i class="fa-solid fa-plus"></i>
                             Senarai Permohonan
                         </div>
-                        <div class="card-body">
-                            <table id="example" class="table table-bordered">
+                        <div class="card-body table-responsive">
+                            <table id="example" class="table table-bordered" width="100%">
                                 <thead>
                                     <tr>
                                         <th>Bil</th>
+                                        <th width="5%" class="text-center">Gambar</th>
                                         <th>Nama</th>
-                                        <th>No Kad Pengenalan</th>
+                                        <th>Jantina</th>
+                                        <th>Department</th>
+                                        <th>Universiti</th>
+                                        <th>Tarikh Mula</th>
+                                        <th>Tarikh Tamat</th>
                                         <th>Kemaskini</th>
                                     </tr>
                                 </thead>
                             
                                 <tbody>
-                                <?php
                                 <?php
                                 // $result = dbquery("SELECT * FROM tb_students");
                                 // if(dbrows($result)) {
