@@ -2,33 +2,7 @@
 require_once('conn.php');
 include('headeruser.php');
 
-if(isset($_GET['success']) && $_GET['success']=="1") {
-	echo "<script>
-			setTimeout(function() {
-                Swal.fire({
-                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Ditambah !', icon: 'success', timerProgressBar: true, timer: 3000
-                })
-			}, 600);
-		</script>";
-}
-if(isset($_GET['success']) && $_GET['success']=="2") {
-	echo "<script>
-			setTimeout(function() {
-                Swal.fire({
-                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Dikemaskini !', icon: 'success', timerProgressBar: true, timer: 3000
-                })
-			}, 600);
-		</script>";
-}
-if(isset($_GET['success']) && $_GET['success']=="3") {
-	echo "<script>
-			setTimeout(function() {
-                Swal.fire({
-                    position: 'top-end', showConfirmButton: false, titleText: 'Berjaya !', text: 'Data Telah Berjaya Dipadam !', icon: 'success', timerProgressBar: true, timer: 3000
-                })
-			}, 600);
-		</script>";
-}
+include('sweetalert2.php');
 ?>
                 <main>  
                     <div class="container-fluid px-4">
