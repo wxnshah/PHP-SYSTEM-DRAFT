@@ -2,6 +2,14 @@
 $id_students = isset($_GET['delete_id']) && $_GET['delete_id']!="" ? $_GET['delete_id'] : "";
 
 #arahan SQL untuk padam data	
+
+$result = dbquery("SELECT * FROM tb_students WHERE id_students = '".$id_students ."' ");
+if(dbrows($result)) {
+	while($data = dbarray($result)) {
+		unlink($data['image_student']);
+	}
+}
+
 $arahan_sql_kemaskini = "DELETE FROM tb_students WHERE id_students = '".$id_students."'";
 	
 #melaksanakan proses menyimpan data dalam syarat if
