@@ -1,34 +1,41 @@
 <?php
-require_once("conn_login.php");
-include("header.php");
+require_once('conn.php');
+include('headeruser.php');
 
-$id_hs = isset($_GET['id']) && $_GET['id']!="" ? $_GET['id'] : "";
+$id_students = isset($_GET['id_students']) && $_GET['id_students']!="" ? $_GET['id_students'] : "";
 
 if(isset($_POST['Submit'])) {
-	/*echo "<br>";
-	echo "<br>";
-	echo "<br>";
-	echo "<br>";
-	echo "<pre>";
-	print_r($_POST);
-	echo "</pre>";*/
-	include("assets/proses/proses_kemaskini.php");
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<pre>";
+	// print_r($_POST);
+	// echo "</pre>";
+	include("assets/classes/kemaskini_permohonan.class.php");
 }
 
-if ($id_hs != "") {
+if ($id_students != "") {
 	# arahan sql untuk memilih homestay yang masih kosong pada tarikh dipilih
-	$arahan_SQL_cari1= "SELECT * FROM tb_homestay WHERE id_homestay = '".$id_hs."'";
+	$arahan_SQL_cari1= "SELECT * FROM tb_students WHERE id_students = '".$id_students."'";
 	
 	# melaksanakan arahan memilih
-	$laksana_arahan_cari=mysqli_query($condb,$arahan_SQL_cari1);
+	$laksana_arahan_cari=mysqli_query($conn,$arahan_SQL_cari1);
 	
 	# pembolehubah rekod mengambil data yang di pilih baris demi baris
 	$rekod = mysqli_fetch_assoc($laksana_arahan_cari);
-	$id_hs = $rekod['id_homestay'];
-	$hs_name = $rekod['hs_name'];
-	$hs_address = $rekod['hs_address'];
-	$hs_state = $rekod['hs_state'];
+	$id_students = $rekod['id_students'];
+
+	$data_image_student = $rekod['image_student'];
+	$data_name_students = $rekod['name_students'];
+	$data_id_gender = $rekod['id_gender'];
+	$data_id_department = $rekod['id_department'];
+	$data_id_university = $rekod['id_university'];
+	$data_start_date = $rekod['start_date'];
+	$data_end_date = $rekod['end_date'];
 	
 }
+
+include('sweetalert2.php');
 
 ?>
