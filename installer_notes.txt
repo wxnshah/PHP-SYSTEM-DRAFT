@@ -8,13 +8,10 @@ VISUAL STUDIO CODE (CODE EDITOR)
 https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user
 
 BOOTSTRAP ADMIN DASHBOARD TEMPLATES - START BOOTSTRAP
-// https://startbootstrap.com/template/sb-admin
+https://startbootstrap.com/template/sb-admin
 
 BOOTSTRAP TEMPLATES
-https://drive.google.com/drive/folders/1z2cVq_GgKTlMrRAx6u5BguHKyQsvF3k0?usp=sharing
-
-INSTALLER COMPLETE (FOLDER)
-https://drive.google.com/drive/folders/1FMSmnS6UMj1q6NPmbYu-lDsIrsSyby2U?usp=sharing
+https://github.com/wxnshah/sb-admin-template/archive/refs/heads/main.zip
 
 INSTALLER COMPLETE (ZIP)
-https://drive.google.com/file/d/1olp_oM6eiCNPZOD7UAx6Hf09OFgfE2_a/view?usp=sharing
+https://drive.google.com/file/d/1upNVXz8S-o4SVDJ3zUbkgak2vtnFCzvf/view?usp=sharing
