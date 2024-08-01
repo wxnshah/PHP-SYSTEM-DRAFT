@@ -6,3 +6,11 @@ if ( isset($_SESSION['userData']) != "") {
 	exit;
 }
 ?>
+	
+<!-- SweetAlert2 -->
+<link rel="stylesheet" type="text/css" href="assets/libs/sweetalert2/sweetalert2.min.css"/>
+<!-- End SweetAlert2 -->
+
+<!-- Sweet Alerts js -->
+<script src="assets/libs/sweetalert2/sweetalert2.min.js"></script>
+<!-- Sweet Alerts js ends -->
