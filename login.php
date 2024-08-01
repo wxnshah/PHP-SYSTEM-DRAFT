@@ -1,4 +1,3 @@
-<!--Memanggil fail header-->
 <?php
 require_once("conn.php");
 if ( isset($_SESSION['userData']) != "") {
