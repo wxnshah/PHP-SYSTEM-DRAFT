@@ -1,5 +1,5 @@
 <?php
-require_once("conn_login.php");
+require_once("conn.php");
 
 if(isset($_POST['Submit'])) {
 	/*echo "<br>";
