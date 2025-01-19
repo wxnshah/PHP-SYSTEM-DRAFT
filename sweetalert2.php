@@ -1,4 +1,13 @@
 <?php
+if(isset($_GET['success']) && $_GET['success']=="0") {
+	echo "<script>
+			setTimeout(function() {
+                Swal.fire({
+                    position: 'top-end', showConfirmButton: false, titleText: 'Gagal !', text: 'No Kad Pengenalan atau Kata Laluan Salah !', icon: 'error', timerProgressBar: true, timer: 3000
+                })
+			}, 600);
+		</script>";
+}
 if(isset($_GET['success']) && $_GET['success']=="1") {
 	echo "<script>
 			setTimeout(function() {
