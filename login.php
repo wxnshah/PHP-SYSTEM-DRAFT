@@ -13,7 +13,7 @@ include('sweetalerts2.php');
 <link rel="stylesheet" type="text/css" href="css/v6.6.0/sharp-regular.css" />
 <link rel="stylesheet" type="text/css" href="css/v6.6.0/sharp-solid.css" />
 <link rel="stylesheet" type="text/css" href="css/v6.6.0/sharp-thin.css" />
-<script src="js/jquery-3.6.4.js"></script>
+<script src="js/jquery-3.7.1.js"></script>
 <!-- SweetAlert2 -->
 <link rel="stylesheet" type="text/css" href="assets/libs/sweetalert2/sweetalert2.min.css"/>
 <!-- End SweetAlert2 -->
