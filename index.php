@@ -7,17 +7,8 @@ include('headeruser.php');
 
 if (!empty($_SESSION)){
 ?>
+    
 <?php
-
-
-
-
-
-
-
-
-
-
 } else {
     redirect('login.php');
 }
