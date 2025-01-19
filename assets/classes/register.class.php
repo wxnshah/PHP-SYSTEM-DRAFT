@@ -7,7 +7,7 @@ if (!empty($_POST))
 	$user_name = $_POST['user_name'];
 	$user_ic = $_POST['user_ic'];
 	$user_email = $_POST['user_email'];
-    	$password = hash_hmac("sha512", $_POST['password'], "majlisperbandaransungaipetani");
+	$password = hash_hmac("sha512", $_POST['password'], "majlisperbandaransungaipetani");
     
 	#pengesahan data
 	if (empty ($user_name) || empty ($user_ic) || empty ($user_email) || empty ($password)) {
