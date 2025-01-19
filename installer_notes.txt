@@ -1,5 +1,5 @@
 HEIDISQL
-https://www.heidisql.com/installers/HeidiSQL_12.8.0.6908_Setup.exe
+https://www.heidisql.com/installers/HeidiSQL_12.9.0.6999_Setup.exe
 
 XAMPP
 https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/8.2.12/xampp-windows-x64-8.2.12-0-VS16-installer.exe
