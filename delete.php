@@ -1,9 +1,16 @@
 <?php
-    require_once("conn_login.php");
-    include("header.php");
-    
-    $id_pelajar = isset($_GET['id']) && $_GET['id']!="" ? $_GET['id'] : "";
+require_once('conn.php');
+include('headeruser.php');
 
-    include("assets/proses/proses_padam.php");
+if(isset($_GET['delete_id'])) {
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<br>";
+	// echo "<pre>";
+	// print_r($_GET);
+	// echo "</pre>";
+	include('assets/proses/Delete.class.php');
+}
 
 ?>
