@@ -62,7 +62,7 @@ include('sweetalert2.php');
                                             //         <?php
                                             //             $image_users = $data['image_users'];
                                             //             if($image_users != "" && $image_users != NULL){
-                                            //                 echo "<img src='".$image_users."' class='rounded-circle' alt='img' style='width: 50px; height: 50px; object-fit: cover; border-radius: 50%;'>";
+                                            //                 echo "<img src='assets/uploads/".$image_users."' class='rounded-circle' alt='img' style='width: 50px; height: 50px; object-fit: cover; border-radius: 50%;'>";
                                             //             } else {
                                             //                 echo "<img src='assets/img/user.png' class='rounded-circle' alt='img' style='width: 50px; height: 50px; object-fit: cover; border-radius: 50%;'>";
                                             //             }
