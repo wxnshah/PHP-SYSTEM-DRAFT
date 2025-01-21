@@ -22,7 +22,8 @@ if (!empty($_POST))
 		$target_dir_image = "assets/uploads/";
 		$image = $_FILES['image_users'];
 		$image_name = $image['name'];
-		$new_image_name = $target_dir_image . time() . "-" . rand(1000, 9999) . "-" . $image_name;
+		// $new_image_name = $target_dir_image . time() . "-" . rand(1000, 9999) . "-" . $image_name;
+		$new_image_name = time() . "-" . rand(1000, 9999) . "-" . $image_name;
 		$target_image_file = $target_dir_image . basename($new_image_name);
 		$imageUploadOk = 1;
 		$imageFileType = strtolower(pathinfo($target_image_file, PATHINFO_EXTENSION));
