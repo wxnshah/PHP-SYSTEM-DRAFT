@@ -47,50 +47,81 @@ include('sweetalert2.php');
                             
                                 <tbody>
                                 <?php
-                                // $result = dbquery("SELECT * FROM tb_students");
-                                // if(dbrows($result)) {
-                                //     $i=0;
-                                //     while($data=dbarray($result)) {
-                                //     $i++;
-                                //     echo "
-                                //     <tr>
-                                //         <td align='center'>
-                                //             ".$i."
-                                //         </td>
-                                //         <td class='text-center'>";
-                                //             if($data['image_student'] == "" || $data['image_student'] == NULL){
-                                //                 echo "<img src='assets/img/user.png' class='rounded' width='40%'>";
-                                //             } else{
-                                //                 echo "<img src='".$data['image_student']."' class='rounded' width='40%'>";
-                                //             }
-                                //         echo "
-                                //         </td>
-                                //         <td>
-                                //             <p>".$data['name_students']."</p>
-                                //         </td>
-                                //         <td>
-                                //             <p>".getDataFromTable('name_gender',$data['id_gender'],'id_gender','lt_gender')."</p>
-                                //         </td>
-                                //         <td>
-                                //             <p>".$data['id_department']."</p>
-                                //         </td>
-                                //         <td>
-                                //             <p>".$data['id_university']."</p>
-                                //         </td>
-                                //         <td>
-                                //             <p>".$data['start_date']."</p>
-                                //         </td>
-                                //         <td>
-                                //             <p>".$data['end_date']."</p>
-                                //         </td>
-                                //         <td align='center' width='1%'>
-                                //             <a href='kemaskini_permohonan.php?id_students=".$data['id_students']."'><i class='fas fa-edit fa-2x'></i></a>&nbsp;&nbsp;
-                                //             <a href='senarai_permohonan.php?delete_id=".$data['id_students']."' onClick=\"return deletebuttonask()\"><i class='fas fa-trash fa-2x'></i></a>
-                                //         </td>
-                                //     </tr>";
-                                //     }   
-                                // }
-                                ?>
+                                            // $result = dbquery("SELECT * FROM tb_maklumat");
+                                            // if(dbrows($result)) {
+                                            //     $i=0;
+                                            //     while($data=dbarray($result)) {
+                                            //     $i++;
+                                            //     echo "
+                                            //     <tr>
+                                            //         <td align='center'>
+                                            //             ".$i."
+                                            //         </td>
+                                            //         <td>";
+                                            //         ?>
+                                            //         <?php
+                                            //             $image_users = $data['image_users'];
+                                            //             if($image_users != "" && $image_users != NULL){
+                                            //                 echo "<img src='".$image_users."' class='rounded-circle' alt='img' style='width: 50px; height: 50px; object-fit: cover; border-radius: 50%;'>";
+                                            //             } else {
+                                            //                 echo "<img src='assets/img/user.png' class='rounded-circle' alt='img' style='width: 50px; height: 50px; object-fit: cover; border-radius: 50%;'>";
+                                            //             }
+                                            //         ?>
+                                            //         <?php
+                                            //         echo "
+                                            //         </td>
+                                            //         <td>";
+                                            //         ?>
+                                            //         <?php
+                                            //             $resume_users = $data['resume_users'];
+                                            //             if($resume_users != "" && $resume_users != NULL){
+                                            //                 echo "
+                                            //                 <a href='assets/resume/" . $resume_users . "' target='_blank'>
+                                            //                     <p>Resume " . getDataFromTable('user_name', $data['id_users'], 'id_users', 'tb_users') . "</p>
+                                            //                 </a>
+                                            //                 ";
+                                            //             } else {
+                                            //                 echo "<p>Tiada Resume</p>";
+                                            //             }
+                                            //         ?>
+                                            //         <?php
+                                            //         echo "
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".getDataFromTable('user_name',$data['id_users'],'id_users','tb_users')."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".getDataFromTable('name_gender',$data['id_gender'],'id_gender','lt_gender')."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['tarikh_lahir']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['alamat']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['no_telefon']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['id_ipta']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['no_matrik']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['tarikh_mula']."</p>
+                                            //         </td>
+                                            //         <td>
+                                            //             <p>".$data['tarikh_tamat']."</p>
+                                            //         </td>
+                                            //         <td align='center' width='1%'>
+                                            //             <a href='kemaskini_maklumat_pelajar.php?id_maklumat=".$data['id_maklumat']."'><i class='fas fa-edit fa-2x'></i></a>&nbsp;&nbsp;
+                                            //             <a href='".htmlspecialchars($_SERVER['PHP_SELF'])."?delete_id=".$data['id_maklumat']."' onClick=\"return deletebuttonask()\"><i class='fas fa-trash fa-2x'></i></a>
+                                            //         </td>
+                                            //     </tr>";
+                                            //     }   
+                                            // }
+                                        ?>
                                 </tbody>
                             </table>
                         </div>
