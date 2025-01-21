@@ -1,75 +1,111 @@
-<?php
+<?PHP 
 # menyemak kewujudan data POST
 if (!empty($_POST))
 {
-	
+
 	# mengambil data POST
-	$image_student = $_FILES['image_student'];
-	$name_students = $_POST['name_students'];
+	$image_users = $_FILES['image_users'];
+	$resume_users = $_FILES['resume_users'];
+	$id_users = $_POST['id_users'];
 	$id_gender = $_POST['id_gender'];
-	$id_department = $_POST['id_department'];
-	$id_university = $_POST['id_university'];
-	$start_date = $_POST['start_date'];
-	$end_date = $_POST['end_date'];
+	$tarikh_lahir = $_POST['tarikh_lahir'];
+	$alamat = $_POST['alamat'];
+	$no_telefon = $_POST['no_telefon'];
+	$id_ipta = $_POST['id_ipta'];
+	$no_matrik = $_POST['no_matrik'];
+	$tarikh_mula = $_POST['tarikh_mula'];
+	$tarikh_tamat = $_POST['tarikh_tamat'];
 
-	$target_dir = "assets/uploads/";
-	$name = $_FILES['image_student']['name'];
-	$new_name = $target_dir.time()."-".rand(1000, 9999)."-".$name;
-	$target_file = $target_dir . basename($new_name);
-	$uploadOk = 1;
-	$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+	if (isset($_POST["Submit"])) {
 
-	// Check if image file is a actual image or fake image
-	if(isset($_POST["Submit"])) {
-	$check = getimagesize($_FILES["image_student"]["tmp_name"]);
-	if($check !== false) {
-		// echo "File is an image - " . $check["mime"] . ".";
-		$uploadOk = 1;
-	} else {
-		redirect('papar_borang.php?error=4');
-		// echo "File is not an image.";
-		$uploadOk = 0;
-	}
+		// IMAGE UPLOAD
+		$target_dir_image = "assets/uploads/";
+		$image = $_FILES['image_users'];
+		$image_name = $image['name'];
+		$new_image_name = $target_dir_image . time() . "-" . rand(1000, 9999) . "-" . $image_name;
+		$target_image_file = $target_dir_image . basename($new_image_name);
+		$imageUploadOk = 1;
+		$imageFileType = strtolower(pathinfo($target_image_file, PATHINFO_EXTENSION));
+
+		// Check if image file is a actual image or fake image
+		$check = getimagesize($image["tmp_name"]);
+		if ($check !== false) {
+			$imageUploadOk = 1;
+		} else {
+			redirect('tambah_maklumat_pelajar.php?error=4');
+			$imageUploadOk = 0;
+		}
+
+		// Check if file already exists
+		if (file_exists($target_image_file)) {
+			redirect('tambah_maklumat_pelajar.php?error=5');
+			$imageUploadOk = 0;
+		}
+
+		// Check file size
+		if ($image["size"] > 500000) {
+			redirect('tambah_maklumat_pelajar.php?error=6');
+			$imageUploadOk = 0;
+		}
+
+		// Allow certain file formats
+		if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif") {
+			redirect('tambah_maklumat_pelajar.php?error=7');
+			$imageUploadOk = 0;
+		}
+
+		// Upload image if no errors
+		if ($imageUploadOk == 1) {
+			if (move_uploaded_file($image["tmp_name"], $target_image_file)) {
+				// Image uploaded successfully
+			} else {
+				redirect('tambah_maklumat_pelajar.php?error=8');
+			}
+		}
+
+		// RESUME UPLOAD (PDF, DOC, DOCX)
+		$target_dir_resume = "assets/resume/";
+		$resume = $_FILES['resume_users'];
+		$resume_name = $resume['name'];
+		// $new_resume_name = $target_dir_resume . time() . "-" . rand(1000, 9999) . "-" . $resume_name;
+		$new_resume_name = time() . "-" . rand(1000, 9999) . "-" . $resume_name;
+		$target_resume_file = $target_dir_resume . basename($new_resume_name);
+		$resumeUploadOk = 1;
+		$fileType = strtolower(pathinfo($target_resume_file, PATHINFO_EXTENSION));
+
+		// Check if file is a valid document type (PDF, DOC, DOCX)
+		if ($fileType != "pdf" && $fileType != "doc" && $fileType != "docx") {
+			redirect('tambah_maklumat_pelajar.php?error=7');
+			$resumeUploadOk = 0;
+		}
+
+		// Check if file already exists
+		if (file_exists($target_resume_file)) {
+			redirect('tambah_maklumat_pelajar.php?error=5');
+			$resumeUploadOk = 0;
+		}
+
+		// Check file size (max size 2MB for document)
+		if ($resume["size"] > 2000000) {  // 2MB
+			redirect('tambah_maklumat_pelajar.php?error=6');
+			$resumeUploadOk = 0;
+		}
+
+		// Upload resume if no errors
+		if ($resumeUploadOk == 1) {
+			if (move_uploaded_file($resume["tmp_name"], $target_resume_file)) {
+				// Resume uploaded successfully
+			} else {
+				redirect('tambah_maklumat_pelajar.php?error=8');
+			}
+		}
 	}
 
-	// Check if file already exists
-	if (file_exists($target_file)) {
-		// echo $target_file;
-		redirect('papar_borang.php?error=5');
-		// echo "Sorry, file already exists.";
-	$uploadOk = 0;
-	}
-
-	// Check file size
-	if ($_FILES["image_student"]["size"] > 500000) {
-		redirect('papar_borang.php?error=6');
-		// echo "Sorry, your file is too large.";
-	$uploadOk = 0;
-	}
-
-	// Allow certain file formats
-	if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
-		redirect('papar_borang.php?error=7');
-		// echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-	$uploadOk = 0;
-	}
-
-	// Check if $uploadOk is set to 0 by an error
-	if ($uploadOk == 0) {
-		// echo "Sorry, your file was not uploaded.";
-	// if everything is ok, try to upload file
-	} else {
-	if (move_uploaded_file($_FILES["image_student"]["tmp_name"], $target_file)) {
-		// echo "The file ". htmlspecialchars( basename( $_FILES["image_student"]["name"])). " has been uploaded.";
-	} else {
-		redirect('papar_borang.php?error=8');
-		// echo "Sorry, there was an error uploading your file.";
-	}
-	}
-		
+    
+    
 	#pengesahan data
-	if (empty ($name_students) || empty ($id_gender) || empty ($id_department) || empty ($id_university) || empty ($start_date) || empty($end_date))
-	{
+	if (empty ($id_users) || empty ($id_gender) || empty ($tarikh_lahir) || empty ($alamat) || empty ($no_telefon) || empty ($id_ipta) || empty ($no_matrik) || empty ($tarikh_mula) || empty ($tarikh_tamat)) 
+    {
 		echo "<script>
 			setTimeout(function() {
 				Swal.fire({
@@ -80,14 +116,14 @@ if (!empty($_POST))
 
 	} else {
 		#arahan SQL untuk menyimpan data	
-		$arahan_sql_simpan = "INSERT INTO tb_students(image_student,name_students,id_gender,id_department,id_university,start_date,end_date)VALUES('$target_file','$name_students','$id_gender','$id_department','$id_university','$start_date','$end_date')";
+		$arahan_sql_simpan = "INSERT INTO tb_maklumat(id_users,image_users,resume_users,id_gender,tarikh_lahir,alamat,no_telefon,id_ipta,no_matrik,tarikh_mula,tarikh_tamat)VALUES('$id_users','$target_image_file','$new_resume_name','$id_gender','$tarikh_lahir','$alamat','$no_telefon','$id_ipta','$no_matrik','$tarikh_mula','$tarikh_tamat')";
 
 		#melaksanakan proses menyimpan data dalam syarat if
 		if(mysqli_query($conn,$arahan_sql_simpan))
 		{
 			#jika proses menyimpan berjaya,papar info dan buka laman add.php
 			//echo "<script>alert('Kemasukan Data Berjaya')</script>";
-			redirect("senarai_permohonan.php?success=1");
+			redirect("senarai_maklumat_pelajar.php?success=1");
 		}
 		else
 		{	
@@ -99,9 +135,9 @@ if (!empty($_POST))
 					})
 				}, 600);
 			</script>";
-			redirect("papar_borang.php");
+			redirect("tambah_maklumat_pelajar.php");
 		}
 	}
-	
+
 }
 ?>
