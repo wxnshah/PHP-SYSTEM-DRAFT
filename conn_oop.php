@@ -49,10 +49,13 @@ if(isset($_POST['user_ic']) && isset($_POST['password']) && $_POST['user_ic'] !=
         $user_name = $_SESSION['userData']['user_name'];
         $user_email = $_SESSION['userData']['user_email'];
         $user_ic = $_SESSION['userData']['user_ic'];
+        $user_level = $_SESSION['userData']['user_level'];
 
         // Redirect to index.php after setting session data
         redirect("index.php");
     } else {
+        // echo print_r($result);
+        // echo "SELECT * FROM tb_users WHERE user_ic = $user_ic AND password = $password";
         redirect("login.php?success=0");
     }
 } elseif(isset($_GET['logout']) && $_GET['logout'] == "yes"){
@@ -67,6 +70,7 @@ if(isset($_POST['user_ic']) && isset($_POST['password']) && $_POST['user_ic'] !=
         $user_name = $_SESSION['userData']['user_name'];
         $user_email = $_SESSION['userData']['user_email'];
         $user_ic = $_SESSION['userData']['user_ic'];
+        $user_level = $_SESSION['userData']['user_level'];
     }
 }
 
@@ -88,24 +92,42 @@ function dbquery($query) {
 	}
 }
 
-// function dbcount($field, $table, $conditions = "") {
-// 	global $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
+function dbcount($column_name, $table_name, $conditions = "", $conn) {
+    global $mysql_queries_count, $mysql_queries_time;
 
-// 	$cond = ($conditions ? " WHERE ".$conditions : "");
-// 	$query_time = get_microtime();
-// 	$result = @mysqli_query("SELECT Count".$field." FROM ".$table.$cond);
-// 	$query_time = substr((get_microtime() - $query_time),0,7);
+    // Increment the query count
+    $mysql_queries_count++;
 
-// 	$mysql_queries_time[$mysql_queries_count] = array($query_time, "SELECT COUNT".$field." FROM ".$table.$cond);
+    // Form the condition if provided
+    $cond = ($conditions ? " WHERE " . $conditions : "");
 
-// 	if (!$result) {
-// 		echo mysqli_connect_error();
-// 		return false;
-// 	} else {
-// 		$rows = mysqli_result($result, 0);
-// 		return $rows;
-// 	}
-// }
+    // Start measuring the query time
+    $query_time = get_microtime();
+
+    // Perform the query
+    $query = "SELECT COUNT(" . $column_name . ") AS count FROM " . $table_name . $cond;
+    $result = @mysqli_query($conn, $query);  // Pass $conn as the first argument
+
+    // Calculate the query time
+    $query_time = substr((get_microtime() - $query_time), 0, 7);
+
+    // Store query time and the query itself for debugging purposes
+    $mysql_queries_time[$mysql_queries_count] = array($query_time, $query);
+
+    // Check if the query was successful
+    if (!$result) {
+        // If the connection has an error, show it using mysqli_connect_error()
+        echo mysqli_connect_error();  // Will only work for connection errors
+        return false;
+    } else {
+        // Fetch the result
+        $row = mysqli_fetch_assoc($result);
+
+        // Return the count value
+        return $row['count'];
+    }
+}
+
 
 function dbrows($query) {
 	$result = @mysqli_num_rows($query);
